@@ -119,49 +119,44 @@
   <h2>Common words counter</h2>
   <p>Please select the option that you prefeer to upload the text to analyze:</p>
 
-  <input type="hidden" #selection>
-
   <div class="card-container">
     <button 
       [ngClass]="[
         'card card-small',
-        selection.value === 'text-input' ? 'active' : ''
+        selection === 'text-input' ? 'active' : ''
       ]"
-      (click)="selection.value = 'text-input'" tabindex="0">
+      (click)="selection = 'text-input'">
       <span>Text Input</span>
     </button>
 
     <button
       [ngClass]="[
         'card card-small',
-        selection.value === 'text-file' ? 'active' : ''
+        selection === 'text-file' ? 'active' : ''
       ]"
-      (click)="selection.value = 'text-file'" tabindex="0">
+      (click)="selection = 'text-file'">
       <span>Text File</span>
     </button>
   </div>
 
-  <div class="form-container" [ngSwitch]="selection.value">
+  <form class="form-container" [formGroup]="form" [ngSwitch]="selection" (submit)="onSubmit()">
     <div *ngSwitchCase="'text-input'">
-      <textarea name="text"cols="80" rows="10"></textarea>
+      <textarea formControlName="textInput" name="text"cols="80" rows="10"></textarea>
     </div>
     <div *ngSwitchCase="'text-file'">
-      <input type="file" name="file">
+      <input type="file" name="file" (change)="onFileChange($event)">
     </div>
 
     <br>
     
     <div class="card-container">
-      <button
-        *ngIf="selection.value"
-        [ngClass]="[
-          'card card-small',
-          selection.value === 'text-file' ? 'active' : ''
-        ]"
-        (click)="onSubmit()" tabindex="0"
-      >
+      <button *ngIf="selection" class="card card-small" type="submit">
         <span>Submit</span>
       </button>
     </div>
+  </form>
+
+  <div *ngFor="let word of commonWordsUsed">
+    <span>{{word[0] + ": " + word[1]}}</span>
   </div>
 </div>

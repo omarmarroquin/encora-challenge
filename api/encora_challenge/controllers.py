@@ -24,7 +24,7 @@ def CommonWordsUsedController(text, common_words):
             common_word_count[word] = word_count[lowercase_word]
 
     # common_word_count now contains the counts of common words
-    sorted_word_count = dict(sorted(common_word_count.items(), key=lambda item: item[1], reverse=True))
+    sorted_word_count = sorted(common_word_count.items(), key=lambda item: item[1], reverse=True)
     
     return sorted_word_count
   except Exception as e:
