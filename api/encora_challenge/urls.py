@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from encora_challenge.views import CommonWordsUsed
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("common-words-used", CommonWordsUsed.as_view())
 ]
