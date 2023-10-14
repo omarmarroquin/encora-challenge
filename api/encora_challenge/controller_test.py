@@ -8,11 +8,11 @@ class TestCommonWordsUsedController(unittest.TestCase):
 
         result = CommonWordsUsedController(text, common_words)
 
-        expected = {
-            "is": 2,
-            "a": 2,
-            "it": 1
-        }
+        expected = [
+            ("is", 2),
+            ("a", 2),
+            ("it", 1),
+        ]
 
         self.assertEqual(result, expected)
 
@@ -22,7 +22,7 @@ class TestCommonWordsUsedController(unittest.TestCase):
 
         result = CommonWordsUsedController(text, common_words)
 
-        expected = {}
+        expected = []
 
         self.assertEqual(result, expected)
 
@@ -32,7 +32,7 @@ class TestCommonWordsUsedController(unittest.TestCase):
 
         result = CommonWordsUsedController(text, common_words)
 
-        expected = {}
+        expected = []
 
         self.assertEqual(result, expected)
 

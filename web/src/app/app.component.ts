@@ -34,7 +34,7 @@ export class AppComponent {
       this.selection === 'text-input' ? 'textInput' : 'fileInput'
     )?.value;
     
-    if (!data) throw new Error('No data to submit');
+    if (!data) return;
 
     formData.append('text', data);
 
