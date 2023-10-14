@@ -1,0 +1,26 @@
+# Python-specific ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django-specific ignores
+*.log
+db.sqlite3
+
+# Secret keys
+*.secret_key
+*.env
+
+# Visual Studio Code directory (if using VSCode)
+.vscode/
+
+# Compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dependency directories
+env/
+venv/
