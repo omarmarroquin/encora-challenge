@@ -9,6 +9,10 @@ class CommonWordsUsed(APIView):
   
   def post(self, request):
     text = request.data.get('text', '')
+    
+    if not isinstance(text, str):
+      text = text.read().decode('utf-8')
+    
     result = CommonWordsUsedController(text)
     return Response(result)
     
