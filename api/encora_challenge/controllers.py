@@ -1,13 +1,8 @@
 import re
-import requests
 from collections import Counter
 
-def CommonWordsUsedController(text):
+def CommonWordsUsedController(text, common_words):
   try:
-    # Get the list of common words
-    response = requests.get("https://gist.githubusercontent.com/deekayen/4148741/raw/98d35708fa344717d8eee15d11987de6c8e26d7d/1-1000.txt")
-    common_words = response.text.splitlines()[:100]
-
     # Remove punctuation and convert text to lowercase
     text = re.sub(r'[^\w\s]', '', text.lower())
     
